@@ -1,8 +1,11 @@
 def sumOfNumbers(a):
-    ans = 0
+    counter = 0
 
-    while a > 0:
-        ans += a % 10
-        a //= 10
+    while a > 10:
+        for i in str(a):
+            counter += int(i)
 
-    return ans
+        a = counter
+        counter = 0
+
+    return a
