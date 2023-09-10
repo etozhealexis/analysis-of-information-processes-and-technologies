@@ -7,7 +7,7 @@ def convertBinaryToDecimal(a):
         counter *= 2
         a //= 10
 
-    return ans
+    return str(ans)
 
 
 def convertDecimalToBinary(a):
@@ -17,4 +17,4 @@ def convertDecimalToBinary(a):
         ans += str(a % 2)
         a //= 2
 
-    return int(ans[::-1])
+    return ans[::-1]
