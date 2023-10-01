@@ -14,8 +14,8 @@ class ClassDefiner:
         self.dotsBNeighbourMapK = {}
 
     def defineClass(self, k, c):
-        self.calculateDotMaps(self.dotsAList, c)
-        self.calculateDotMaps(self.dotsBList, c)
+        self.calculateDotMap(self.dotsAList, c)
+        self.calculateDotMap(self.dotsBList, c)
 
         dotsLens = list(self.dotsANeighbourMap.keys()) + list(self.dotsBNeighbourMap.keys())
         dotsLens.sort()
@@ -30,9 +30,9 @@ class ClassDefiner:
         else:
             c.determinator = "I'm instance of A class"
 
-    def calculateDotMaps(self, dotsList, c):
+    def calculateDotMap(self, dotsList, c):
         for element in dotsList:
-            lenToC = math.sqrt(abs(element.x ** 2 - c.x ** 2 + element.y ** 2 - c.y ** 2))
+            lenToC = math.sqrt((element.x - c.x) ** 2 + (element.y - c.y) ** 2)
             if dotsList == self.dotsAList:
                 self.dotsANeighbourMap[lenToC] = element
             elif dotsList == self.dotsBList:
